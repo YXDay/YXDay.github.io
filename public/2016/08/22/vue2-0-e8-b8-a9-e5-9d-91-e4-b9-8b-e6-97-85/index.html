@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="主要是前端的技术...也不排除...千万不要写..." />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>vue2.0踩坑之旅 | 橘子园</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#升级Vue
+##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是:
+-Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does.
+-Runtime only build:si">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue2.0踩坑之旅">
+<meta property="og:url" content="http://yoursite.com/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/index.html">
+<meta property="og:site_name" content="橘子园">
+<meta property="og:description" content="#升级Vue
+##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是:
+-Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does.
+-Runtime only build:si">
+<meta property="og:updated_time" content="2016-10-06T15:36:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue2.0踩坑之旅">
+<meta name="twitter:description" content="#升级Vue
+##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是:
+-Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does.
+-Runtime only build:si">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <!-- <script src='//push.zhanzhang.baidu.com/push.js'></script> -->
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="橘子园" rel="home">橘子园</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">种橘子的地方</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85" class="post-vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      vue2.0踩坑之旅
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/" data-id="ciyvh06tv000f0hk3737im4fg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>#升级Vue</p>
+<p>##引入Vue<br>Vue升级2.0，将compiler与runtime 分开，分成两个build，分别是:</p>
+<p>-Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does.</p>
+<p>-Runtime only build:since it doesn’t include the compiler, you need to either pre-compiled templates in a compile step, or manually written render functions. The npm package will export this build by default, since when consuming Vue from npm, you will likely be using a compilation step (with Browserify or Webpack), during which vueif or vue-loader will perform the template pre-compilation.</p>
+<p>默认引入Runtime only build，而我们在不想要改变过去的一系列构建模式的前提下，需要引入Standalone build，路径是’vue/dist/vue.js’(Runtime only build引入的实际上也是dist文件下的文件)</p>
+<p>##生命周期钩子<br>一定要注意vue2.0对生命周期钩子函数的大量改动：<br>init -&gt; beforeCreate<br> created<br> beforeDestroy<br> destroyed<br> beforeMount(new)<br> mounte(new)<br> beforeUpdate(new)<br> updated(new)<br> activated (new) (for keep-alive)<br> deactivated (new) (for keep-alive)<br> ready | deprecated, use mounted (there’s no longer the guarantee to be in-document)<br>activate | deprecated, moved into vue-router<br>beforeCompile | deprecated, use created<br>compiled | deprecated, use mounted<br>attached | deprecated, use custom in-dom check in other hooks<br>detached | deprecated, same as above</p>
+<p>#升级vue-router<br>    就我们目前的项目来说，问题主要出现在以下两点：<br>    -router.map方法废弃，此类方法统一作为属性加入到构造函数中（见<a href="https://github.com/vuejs/vue-router/releases）。" target="_blank" rel="external">https://github.com/vuejs/vue-router/releases）。</a><br>    -router.start方法废弃，没有在源码或者realease log中发现对应的替代实现。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/">
+    <time datetime="2016-08-22T11:13:48.000Z" class="entry-date">
+        2016-08-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue2-0/">vue2.0</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/09/09/e5-85-bc-e5-ae-b9-e6-80-a7tips/" rel="prev"><span class="meta-nav">←</span> 兼容性tips</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/08/22/css-e7-bb-86-e8-8a-82/" rel="next">css 细节 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/兼容性/">兼容性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/纪念/">纪念</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/z-index要点/">z-index要点</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/27/span换行/">行内元素完整换行</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/13/classification/">classification</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/08/html5标签辨析/">HTML5标签辨析</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/07/电子书爬虫/">电子书爬虫app</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE/">IE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0/">vue2.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档/">文档</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版权/">版权</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子书/">电子书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语义化/">语义化</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue2-0/" style="font-size: 10px;">vue2.0</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/电子书/" style="font-size: 10px;">电子书</a> <a href="/tags/语义化/" style="font-size: 10px;">语义化</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 thu
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <!-- <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

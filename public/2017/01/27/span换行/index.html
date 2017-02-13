@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="主要是前端的技术...也不排除...千万不要写..." />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>行内元素完整换行 | 橘子园</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有这样一个需求,各个标签用行内元素(例如span)包裹(这样做往往是考虑到HTML语义),当容器宽度不足时,完整换行,即当行内剩余空间不足展示一个标签时,换行,而非标签内分断.稍有常识的人一定知道,直接用span是不行的.解决的方案当然也是十分简单,设置这些span的display属性为inline-block就可以了.值得吐槽的是,chrome显示的行内元素的padding区域在出现换行的时候,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="行内元素完整换行">
+<meta property="og:url" content="http://yoursite.com/2017/01/27/span换行/index.html">
+<meta property="og:site_name" content="橘子园">
+<meta property="og:description" content="有这样一个需求,各个标签用行内元素(例如span)包裹(这样做往往是考虑到HTML语义),当容器宽度不足时,完整换行,即当行内剩余空间不足展示一个标签时,换行,而非标签内分断.稍有常识的人一定知道,直接用span是不行的.解决的方案当然也是十分简单,设置这些span的display属性为inline-block就可以了.值得吐槽的是,chrome显示的行内元素的padding区域在出现换行的时候,">
+<meta property="og:updated_time" content="2017-02-05T10:11:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="行内元素完整换行">
+<meta name="twitter:description" content="有这样一个需求,各个标签用行内元素(例如span)包裹(这样做往往是考虑到HTML语义),当容器宽度不足时,完整换行,即当行内剩余空间不足展示一个标签时,换行,而非标签内分断.稍有常识的人一定知道,直接用span是不行的.解决的方案当然也是十分简单,设置这些span的display属性为inline-block就可以了.值得吐槽的是,chrome显示的行内元素的padding区域在出现换行的时候,">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <!-- <script src='//push.zhanzhang.baidu.com/push.js'></script> -->
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="橘子园" rel="home">橘子园</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">种橘子的地方</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-span换行" class="post-span换行 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      行内元素完整换行
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/01/27/span换行/" data-id="ciyvh06to00070hk3wqakoqox" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>有这样一个需求,各个标签用行内元素(例如span)包裹(这样做往往是考虑到HTML语义),当容器宽度不足时,<em>完整换行</em>,即当行内剩余空间不足展示一个标签时,换行,而非标签内分断.<br>稍有常识的人一定知道,直接用span是不行的.<br>解决的方案当然也是十分简单,设置这些span的display属性为inline-block就可以了.<br>值得吐槽的是,chrome显示的行内元素的padding区域在出现换行的时候,会在每一行都显示,这样就会出现除最后一行外,其他行的内容会在”padding区域”(实际上并不是)显示,可能会对一些新手造成困扰.<br>Firefox显示正常.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/01/27/span换行/">
+    <time datetime="2017-01-27T03:32:26.000Z" class="entry-date">
+        2017-01-27
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/02/07/z-index要点/" rel="prev"><span class="meta-nav">←</span> z-index要点</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/11/13/classification/" rel="next">classification <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/兼容性/">兼容性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/纪念/">纪念</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/z-index要点/">z-index要点</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/27/span换行/">行内元素完整换行</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/13/classification/">classification</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/08/html5标签辨析/">HTML5标签辨析</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/07/电子书爬虫/">电子书爬虫app</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE/">IE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0/">vue2.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档/">文档</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版权/">版权</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子书/">电子书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语义化/">语义化</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue2-0/" style="font-size: 10px;">vue2.0</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/电子书/" style="font-size: 10px;">电子书</a> <a href="/tags/语义化/" style="font-size: 10px;">语义化</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 thu
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <!-- <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
