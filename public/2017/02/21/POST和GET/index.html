@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="主要是前端的技术...也不排除...千万不要写..." />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>POST和GET | 橘子园</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="区别根源上来说,参看RFC2616
+GETThe GET method means retrieve whatever information (in the form of an   entity) is identified by the Request-URI. If the Request-URI refers   to a data-producing process, it is th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POST和GET">
+<meta property="og:url" content="http://yoursite.com/2017/02/21/POST和GET/index.html">
+<meta property="og:site_name" content="橘子园">
+<meta property="og:description" content="区别根源上来说,参看RFC2616
+GETThe GET method means retrieve whatever information (in the form of an   entity) is identified by the Request-URI. If the Request-URI refers   to a data-producing process, it is th">
+<meta property="og:updated_time" content="2017-02-21T06:11:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="POST和GET">
+<meta name="twitter:description" content="区别根源上来说,参看RFC2616
+GETThe GET method means retrieve whatever information (in the form of an   entity) is identified by the Request-URI. If the Request-URI refers   to a data-producing process, it is th">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <!-- <script src='//push.zhanzhang.baidu.com/push.js'></script> -->
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="橘子园" rel="home">橘子园</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">种橘子的地方</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/主页">Home</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-POST和GET" class="post-POST和GET post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      POST和GET
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/02/21/POST和GET/" data-id="cizf4v4kl000067k3b250nsrk" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>根源上来说,参看<a href="https://tools.ietf.org/html/rfc2616#page-53" target="_blank" rel="external">RFC2616</a></p>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>The GET method means retrieve whatever information (in the form of an<br>   entity) is identified by the Request-URI. If the Request-URI refers<br>   to a data-producing process, it is the produced data which shall be<br>   returned as the entity in the response and not the source text of the<br>   process, unless that text happens to be the output of the process.</p>
+<p>   The semantics of the GET method change to a “conditional GET” if the<br>   request message includes an If-Modified-Since, If-Unmodified-Since,<br>   If-Match, If-None-Match, or If-Range header field. A conditional GET<br>   method requests that the entity be transferred only under the<br>   circumstances described by the conditional header field(s). The<br>   conditional GET method is intended to reduce unnecessary network<br>   usage by allowing cached entities to be refreshed without requiring<br>   multiple requests or transferring data already held by the client.</p>
+<p>   The semantics of the GET method change to a “partial GET” if the<br>   request message includes a Range header field. A partial GET requests<br>   that only part of the entity be transferred, as described in section<br>   14.35. The partial GET method is intended to reduce unnecessary<br>   network usage by allowing partially-retrieved entities to be<br>   completed without transferring data already held by the client.</p>
+<p>   The response to a GET request is cacheable if and only if it meets<br>   the requirements for HTTP caching described in section 13.</p>
+<p>   See section 15.1.3 for security considerations when used for forms.</p>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><p>The POST method is used to request that the origin server accept the<br>   entity enclosed in the request as a new subordinate of the resource<br>   identified by the Request-URI in the Request-Line. POST is designed<br>   to allow a uniform method to cover the following functions:</p>
+<pre><code>- Annotation of existing resources;
+
+- Posting a message to a bulletin board, newsgroup, mailing list,
+  or similar group of articles;
+
+- Providing a block of data, such as the result of submitting a
+  form, to a data-handling process;
+
+- Extending a database through an append operation.
+</code></pre><p>   The actual function performed by the POST method is determined by the<br>   server and is usually dependent on the Request-URI. The posted entity<br>   is subordinate to that URI in the same way that a file is subordinate<br>   to a directory containing it, a news article is subordinate to a<br>   newsgroup to which it is posted, or a record is subordinate to a<br>   database.</p>
+<p>   The action performed by the POST method might not result in a<br>   resource that can be identified by a URI. In this case, either 200<br>   (OK) or 204 (No Content) is the appropriate response status,<br>   depending on whether or not the response includes an entity that<br>   describes the result.</p>
+<p>   If a resource has been created on the origin server, the response<br>   SHOULD be 201 (Created) and contain an entity which describes the<br>   status of the request and refers to the new resource, and a Location<br>   header (see section 14.30).</p>
+<p>   Responses to this method are not cacheable, unless the response<br>   includes appropriate Cache-Control or Expires header fields. However,<br>   the 303 (See Other) response can be used to direct the user agent to<br>   retrieve a cacheable resource.</p>
+<p>   POST requests MUST obey the message transmission requirements set out<br>   in section 8.2.</p>
+<p>   See section 15.1.3 for security considerations.</p>
+<p>可知,二者<strong>最本质</strong>的区别在于:</p>
+<pre><code>- GET 方法意思是获取被请求 URI（Request-URI）指定的信息（以实体的格式).
+- POST 方法被用于请求源服务器接受请求中的实体作为请求资源的一个新的从属物.
+</code></pre><p>除此之外,二者<strong>较为本质</strong>的区别还有:</p>
+<pre><code>- GET幂等,POST不幂等.
+- GET强制服务器支持,而POST在规范(HTTP/1.1)中为可选支持.
+- GET请求的相应是可缓存的,POST 方法的响应是不可缓存的。除非响应里有合适的 Cache-Control 或者 Expires 头域。然而,303响应能被用户代理利用去获得可缓存的响应
+</code></pre><p>我们再去看一下目前充斥于搜索引擎搜索结果的所谓二者的区别:</p>
+<pre><code>- 后退/刷新时,get无害(相当于重新获取),post会重新提交(重新修改):基于二者**本质区别**
+- GET 请求可被缓存,POST不可以:正确.
+- GET 请求参数保留在浏览器历史记录中,而POST不可以:因为GET参数就在url中,显然.
+- GET 请求可被收藏为书签,POST不可以:同上,显然.
+- GET 请求不应在处理敏感数据时使用:显然.
+- GET 请求有长度限制:错误,GET请求长度体现在url,而http相关规范**从来没有**规定过url的长度限制,所谓的限制只是**特定浏览器**的限制.多为2048B或者1024B
+- GET 请求只应当用于取回数据
+- GET编码类型限定为application/x-www-form-urlencoded,POST有多种类型(下面会总结一些常用的类型)
+- GET只允许ASCII数据类型,POST无限制:大多数浏览器服务器如此实现
+- GET方法产生一个TCP数据包；POST方法产生两个TCP数据包:同上,比如Firefox就不是这么玩的.
+- 安全性,呵呵呵呵呵
+- 可见性,同上.
+</code></pre><p>一言以蔽之,除了上述的<strong>本质区别</strong>,<strong>较为本质的区别</strong>,其他GET和POST的玩法都是浏览器,服务器的规定而已,我们可以给POST用url传参,也可以给GET加上报文体,毕竟HTTP规范只在语义上规定了二者嘛.</p>
+<h2 id="POST的content-type"><a href="#POST的content-type" class="headerlink" title="POST的content-type"></a>POST的content-type</h2><p>比较常见的</p>
+<ul>
+<li>application/x-www-form-urlencoded 在报文体里以和GET相同的格式传输数据</li>
+<li>application/json 消息主体是序列化的JSON字符串</li>
+<li>multipart/form-data 传文件<h2 id="表单的content-type"><a href="#表单的content-type" class="headerlink" title="表单的content-type"></a>表单的content-type</h2>正常情况下,默认application/x-www-form-urlencoded,可换成multipart/form-data,具体参见<a href="https://www.w3.org/TR/html401/cover.html#minitoc" target="_blank" rel="external">W3C相关资料</a></li>
+</ul>
+<p>部分信息为道听途说,未经验证,如有谬误,欢迎指正.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/02/21/POST和GET/">
+    <time datetime="2017-02-21T06:09:53.000Z" class="entry-date">
+        2017-02-21
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2017/02/07/z-index要点/" rel="next">z-index要点 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside class="widget">
+    <h3 class="widget-title">关于我</h3>
+    <div class="widget-content">
+      <p>邮箱：thufelixc(at)gmail.com</p>
+      <p>微信：dyx278923692</p>
+      <p>QQ: 278923692</p>
+    </div>
+</aside>
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/兼容性/">兼容性</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/纪念/">纪念</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/21/POST和GET/">POST和GET</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/07/z-index要点/">z-index要点</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/27/span换行/">行内元素完整换行</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/13/classification/">classification</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/08/html5标签辨析/">HTML5标签辨析</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE/">IE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0/">vue2.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档/">文档</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版权/">版权</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子书/">电子书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语义化/">语义化</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue2-0/" style="font-size: 10px;">vue2.0</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/电子书/" style="font-size: 10px;">电子书</a> <a href="/tags/语义化/" style="font-size: 10px;">语义化</a>
+    </div>
+  </aside>
+
+  
+    <aside class="widget">
+    <h3 class="widget-title"></h3>
+    <div class="widget-content">
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  		var hm = document.createElement("script");
+  		hm.src = "https://hm.baidu.com/hm.js?c275e29e124b51a2fd933e39ddb615a1";
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+    </div>
+</aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 thu
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <!-- <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

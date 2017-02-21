@@ -1,24 +1,23 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
+  Home: 主页
 
 # Content
-excerpt_link: More
-prev: Prev
-next: Next
-reply: Reply
-share: Share
+excerpt_link: 更过
+prev: 上一页
+next: 下一页
+reply: 评论
+share: 分享
 fancybox: true
 
 # Sidebar
 widgets:
-- search
-- music
+- about
 - category
 - recent_posts
 - tag
 - tagcloud
+- account
 
 # Miscellaneous
 google_analytics:

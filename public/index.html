@@ -55,9 +55,7 @@
             <div class="menu-main-container">
                 <ul id="menu-main" class="nav-menu">
                 
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/主页">Home</a></li>
                 
                 </ul>
             </div>
@@ -65,6 +63,98 @@
 </header>
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
+  
+    <article id="post-POST和GET" class="post-POST和GET post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/02/21/POST和GET/">POST和GET</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/02/21/POST和GET/" data-id="cizf4v4kl000067k3b250nsrk" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>根源上来说,参看<a href="https://tools.ietf.org/html/rfc2616#page-53" target="_blank" rel="external">RFC2616</a></p>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>The GET method means retrieve whatever information (in the form of an<br>   entity) is identified by the Request-URI. If the Request-URI refers<br>   to a data-producing process, it is the produced data which shall be<br>   returned as the entity in the response and not the source text of the<br>   process, unless that text happens to be the output of the process.</p>
+<p>   The semantics of the GET method change to a “conditional GET” if the<br>   request message includes an If-Modified-Since, If-Unmodified-Since,<br>   If-Match, If-None-Match, or If-Range header field. A conditional GET<br>   method requests that the entity be transferred only under the<br>   circumstances described by the conditional header field(s). The<br>   conditional GET method is intended to reduce unnecessary network<br>   usage by allowing cached entities to be refreshed without requiring<br>   multiple requests or transferring data already held by the client.</p>
+<p>   The semantics of the GET method change to a “partial GET” if the<br>   request message includes a Range header field. A partial GET requests<br>   that only part of the entity be transferred, as described in section<br>   14.35. The partial GET method is intended to reduce unnecessary<br>   network usage by allowing partially-retrieved entities to be<br>   completed without transferring data already held by the client.</p>
+<p>   The response to a GET request is cacheable if and only if it meets<br>   the requirements for HTTP caching described in section 13.</p>
+<p>   See section 15.1.3 for security considerations when used for forms.</p>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><p>The POST method is used to request that the origin server accept the<br>   entity enclosed in the request as a new subordinate of the resource<br>   identified by the Request-URI in the Request-Line. POST is designed<br>   to allow a uniform method to cover the following functions:</p>
+<pre><code>- Annotation of existing resources;
+
+- Posting a message to a bulletin board, newsgroup, mailing list,
+  or similar group of articles;
+
+- Providing a block of data, such as the result of submitting a
+  form, to a data-handling process;
+
+- Extending a database through an append operation.
+</code></pre><p>   The actual function performed by the POST method is determined by the<br>   server and is usually dependent on the Request-URI. The posted entity<br>   is subordinate to that URI in the same way that a file is subordinate<br>   to a directory containing it, a news article is subordinate to a<br>   newsgroup to which it is posted, or a record is subordinate to a<br>   database.</p>
+<p>   The action performed by the POST method might not result in a<br>   resource that can be identified by a URI. In this case, either 200<br>   (OK) or 204 (No Content) is the appropriate response status,<br>   depending on whether or not the response includes an entity that<br>   describes the result.</p>
+<p>   If a resource has been created on the origin server, the response<br>   SHOULD be 201 (Created) and contain an entity which describes the<br>   status of the request and refers to the new resource, and a Location<br>   header (see section 14.30).</p>
+<p>   Responses to this method are not cacheable, unless the response<br>   includes appropriate Cache-Control or Expires header fields. However,<br>   the 303 (See Other) response can be used to direct the user agent to<br>   retrieve a cacheable resource.</p>
+<p>   POST requests MUST obey the message transmission requirements set out<br>   in section 8.2.</p>
+<p>   See section 15.1.3 for security considerations.</p>
+<p>可知,二者<strong>最本质</strong>的区别在于:</p>
+<pre><code>- GET 方法意思是获取被请求 URI（Request-URI）指定的信息（以实体的格式).
+- POST 方法被用于请求源服务器接受请求中的实体作为请求资源的一个新的从属物.
+</code></pre><p>除此之外,二者<strong>较为本质</strong>的区别还有:</p>
+<pre><code>- GET幂等,POST不幂等.
+- GET强制服务器支持,而POST在规范(HTTP/1.1)中为可选支持.
+- GET请求的相应是可缓存的,POST 方法的响应是不可缓存的。除非响应里有合适的 Cache-Control 或者 Expires 头域。然而,303响应能被用户代理利用去获得可缓存的响应
+</code></pre><p>我们再去看一下目前充斥于搜索引擎搜索结果的所谓二者的区别:</p>
+<pre><code>- 后退/刷新时,get无害(相当于重新获取),post会重新提交(重新修改):基于二者**本质区别**
+- GET 请求可被缓存,POST不可以:正确.
+- GET 请求参数保留在浏览器历史记录中,而POST不可以:因为GET参数就在url中,显然.
+- GET 请求可被收藏为书签,POST不可以:同上,显然.
+- GET 请求不应在处理敏感数据时使用:显然.
+- GET 请求有长度限制:错误,GET请求长度体现在url,而http相关规范**从来没有**规定过url的长度限制,所谓的限制只是**特定浏览器**的限制.多为2048B或者1024B
+- GET 请求只应当用于取回数据
+- GET编码类型限定为application/x-www-form-urlencoded,POST有多种类型(下面会总结一些常用的类型)
+- GET只允许ASCII数据类型,POST无限制:大多数浏览器服务器如此实现
+- GET方法产生一个TCP数据包；POST方法产生两个TCP数据包:同上,比如Firefox就不是这么玩的.
+- 安全性,呵呵呵呵呵
+- 可见性,同上.
+</code></pre><p>一言以蔽之,除了上述的<strong>本质区别</strong>,<strong>较为本质的区别</strong>,其他GET和POST的玩法都是浏览器,服务器的规定而已,我们可以给POST用url传参,也可以给GET加上报文体,毕竟HTTP规范只在语义上规定了二者嘛.</p>
+<h2 id="POST的content-type"><a href="#POST的content-type" class="headerlink" title="POST的content-type"></a>POST的content-type</h2><p>比较常见的</p>
+<ul>
+<li>application/x-www-form-urlencoded 在报文体里以和GET相同的格式传输数据</li>
+<li>application/json 消息主体是序列化的JSON字符串</li>
+<li>multipart/form-data 传文件<h2 id="表单的content-type"><a href="#表单的content-type" class="headerlink" title="表单的content-type"></a>表单的content-type</h2>正常情况下,默认application/x-www-form-urlencoded,可换成multipart/form-data,具体参见<a href="https://www.w3.org/TR/html401/cover.html#minitoc" target="_blank" rel="external">W3C相关资料</a></li>
+</ul>
+<p>部分信息为道听途说,未经验证,如有谬误,欢迎指正.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/02/21/POST和GET/">
+    <time datetime="2017-02-21T06:09:53.000Z" class="entry-date">
+        2017-02-21
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
   
     <article id="post-z-index要点" class="post-z-index要点 post type-post status-publish format-standard hentry">
     <!---->
@@ -81,16 +171,16 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/02/07/z-index要点/" data-id="ciyvh06tr000b0hk3de0nex51" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/02/07/z-index要点/" data-id="cizf4v4lu001767k3lcdj2ybq" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>#理解<br>可以理解为”<em>版本号</em>“,即父元素为主版本,子元素为次要版本,由此来确立层叠顺序.</p>
-<p>#父子<br>父子元素下,<em>只要父元素设置了z-index值,无论子元素如何设置,其都在其父元素之上显示</em>,但是,如果父元素没有设置,或设置为默认值,当子组件设置z-index为负值时,子组件会放置于父组件之下.</p>
-<p>#默认值<br>z-index的默认值auto的意思为,不新建堆叠上下文,元素所在的堆叠上下文和其父元素相同.</p>
-<p>#问题<br>基于以上规则,子元素作为次要”版本号”无法堆叠在其父版本的兄弟版本上时,解决思路有可以通过移除不同级别的菜单之间的重叠，或者使用ID选择器指定独立的（不同的）z-index值，或者减少HTML的层级。</p>
+        <h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>可以理解为”<em>版本号</em>“,即父元素为主版本,子元素为次要版本,由此来确立层叠顺序.</p>
+<h2 id="父子"><a href="#父子" class="headerlink" title="父子"></a>父子</h2><p>父子元素下,<em>只要父元素设置了z-index值,无论子元素如何设置,其都在其父元素之上显示</em>,但是,如果父元素没有设置,或设置为默认值,当子组件设置z-index为负值时,子组件会放置于父组件之下.</p>
+<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><p>z-index的默认值auto的意思为,不新建堆叠上下文,元素所在的堆叠上下文和其父元素相同.</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>基于以上规则,子元素作为次要”版本号”无法堆叠在其父版本的兄弟版本上时,解决思路有可以通过移除不同级别的菜单之间的重叠，或者使用ID选择器指定独立的（不同的）z-index值，或者减少HTML的层级。</p>
 
       
     </div><!-- .entry-content -->
@@ -127,7 +217,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/01/27/span换行/" data-id="ciyvh06to00070hk3wqakoqox" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/01/27/span换行/" data-id="cizf4v4kz000567k35zjtwkhq" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -170,7 +260,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/11/13/classification/" data-id="ciyvh06tk00050hk3ge69zx15" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/11/13/classification/" data-id="cizf4v4kp000167k3qz4qqrsr" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -212,7 +302,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/08/html5标签辨析/" data-id="ciyvh06tm00060hk3uvmupfoo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/08/html5标签辨析/" data-id="cizf4v4kr000267k3ah8thc84" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -271,7 +361,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/07/电子书爬虫/" data-id="ciyvh06tx000h0hk3knn3vrt9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/07/电子书爬虫/" data-id="cizf4v4l5000a67k3r1rkl8lp" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -328,7 +418,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/07/迁移完成/" data-id="ciyvh06u6000k0hk3du2xmzyd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/07/迁移完成/" data-id="cizf4v4lv001967k3igpho17f" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -376,7 +466,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/09/e5-85-bc-e5-ae-b9-e6-80-a7tips/" data-id="ciyvh06tc00020hk3vfcyaadt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/09/e5-85-bc-e5-ae-b9-e6-80-a7tips/" data-id="cizf4v4kt000367k3d1hy3w16" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -429,7 +519,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/" data-id="ciyvh06tv000f0hk3737im4fg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/" data-id="cizf4v4l4000867k39ra3d4ox" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -486,7 +576,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/css-e7-bb-86-e8-8a-82/" data-id="ciyvh06t800010hk3kwqyrwin" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/css-e7-bb-86-e8-8a-82/" data-id="cizf4v4l8000c67k3k4kl1d2o" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -543,72 +633,25 @@
 
 
   
-    <article id="post-vue-2-0-changes" class="post-vue-2-0-changes post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
   
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/08/22/vue-2-0-changes/">vue 2.0 Changes</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/vue-2-0-changes/" data-id="ciyvh06tu000d0hk3ocngiosh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h3 id="High-Level-Changes"><a href="#High-Level-Changes" class="headerlink" title="High Level Changes"></a>High Level Changes</h3><ul>
-<li>模板解析不再依赖DOM（除非你使用DOM本身作为你的模板），所以只要你使用字符串模板（&lt;script type=”text/x-template”&gt;/<em>译注：YUI类库自己定义的元素type，用于存放html减少DOM节点</em>/,内联JavaScript字符串，或者经由单文件组件编译而成的字符串模板），你不再需要面对任何1.x版本中的模板解析局限。然而，如果你（使用el选项）将现存的内容绑定到元素上作为模板，你依旧将面临那些局限。</li>
-</ul>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/08/22/vue-2-0-changes/">
-    <time datetime="2016-08-22T03:00:56.000Z" class="entry-date">
-        2016-08-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文档/">文档</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
+    <nav id="pagination">
+      <nav id="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+      </nav>
+    </nav>
   
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">
   
-    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
-    <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+    <aside class="widget">
+    <h3 class="widget-title">关于我</h3>
+    <div class="widget-content">
+      <p>邮箱：thufelixc(at)gmail.com</p>
+      <p>微信：dyx278923692</p>
+      <p>QQ: 278923692</p>
     </div>
-</form></aside>
-  
-    
+</aside>
   
     
   <aside class="widget">
@@ -626,6 +669,10 @@
       <ul>
         
           <li>
+            <a href="/2017/02/21/POST和GET/">POST和GET</a>
+          </li>
+        
+          <li>
             <a href="/2017/02/07/z-index要点/">z-index要点</a>
           </li>
         
@@ -639,10 +686,6 @@
         
           <li>
             <a href="/2016/10/08/html5标签辨析/">HTML5标签辨析</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/07/电子书爬虫/">电子书爬虫app</a>
           </li>
         
       </ul>
@@ -666,6 +709,22 @@
       <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue2-0/" style="font-size: 10px;">vue2.0</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/电子书/" style="font-size: 10px;">电子书</a> <a href="/tags/语义化/" style="font-size: 10px;">语义化</a>
     </div>
   </aside>
+
+  
+    <aside class="widget">
+    <h3 class="widget-title"></h3>
+    <div class="widget-content">
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  		var hm = document.createElement("script");
+  		hm.src = "https://hm.baidu.com/hm.js?c275e29e124b51a2fd933e39ddb615a1";
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+    </div>
+</aside>
 
   
 </div>
