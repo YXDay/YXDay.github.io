@@ -15,25 +15,17 @@
   
   <title>vue2.0踩坑之旅 | 橘子园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#升级Vue
-##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是:
--Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does.
--Runtime only build:si">
+  <meta name="description" content="#升级Vue ##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是: -Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does. -Runtime only build:si">
+<meta name="keywords" content="vue2.0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue2.0踩坑之旅">
 <meta property="og:url" content="http://yoursite.com/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/index.html">
 <meta property="og:site_name" content="橘子园">
-<meta property="og:description" content="#升级Vue
-##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是:
--Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does.
--Runtime only build:si">
-<meta property="og:updated_time" content="2016-10-06T15:36:18.000Z">
+<meta property="og:description" content="#升级Vue ##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是: -Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does. -Runtime only build:si">
+<meta property="og:updated_time" content="2018-03-11T08:19:56.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue2.0踩坑之旅">
-<meta name="twitter:description" content="#升级Vue
-##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是:
--Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does.
--Runtime only build:si">
+<meta name="twitter:description" content="#升级Vue ##引入VueVue升级2.0，将compiler与runtime 分开，分成两个build，分别是: -Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does. -Runtime only build:si">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -87,7 +79,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/" data-id="ciztp7zz7000eenk32dtdr8gb" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/" data-id="cjemk0cwr000et3k3t471bdow" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -99,7 +91,7 @@
 <p>-Runtime only build:since it doesn’t include the compiler, you need to either pre-compiled templates in a compile step, or manually written render functions. The npm package will export this build by default, since when consuming Vue from npm, you will likely be using a compilation step (with Browserify or Webpack), during which vueif or vue-loader will perform the template pre-compilation.</p>
 <p>默认引入Runtime only build，而我们在不想要改变过去的一系列构建模式的前提下，需要引入Standalone build，路径是’vue/dist/vue.js’(Runtime only build引入的实际上也是dist文件下的文件)</p>
 <p>##生命周期钩子<br>一定要注意vue2.0对生命周期钩子函数的大量改动：<br>init -&gt; beforeCreate<br> created<br> beforeDestroy<br> destroyed<br> beforeMount(new)<br> mounte(new)<br> beforeUpdate(new)<br> updated(new)<br> activated (new) (for keep-alive)<br> deactivated (new) (for keep-alive)<br> ready | deprecated, use mounted (there’s no longer the guarantee to be in-document)<br>activate | deprecated, moved into vue-router<br>beforeCompile | deprecated, use created<br>compiled | deprecated, use mounted<br>attached | deprecated, use custom in-dom check in other hooks<br>detached | deprecated, same as above</p>
-<p>#升级vue-router<br>    就我们目前的项目来说，问题主要出现在以下两点：<br>    -router.map方法废弃，此类方法统一作为属性加入到构造函数中（见<a href="https://github.com/vuejs/vue-router/releases）。" target="_blank" rel="external">https://github.com/vuejs/vue-router/releases）。</a><br>    -router.start方法废弃，没有在源码或者realease log中发现对应的替代实现。</p>
+<p>#升级vue-router<br>    就我们目前的项目来说，问题主要出现在以下两点：<br>    -router.map方法废弃，此类方法统一作为属性加入到构造函数中（见<a href="https://github.com/vuejs/vue-router/releases）。" target="_blank" rel="noopener">https://github.com/vuejs/vue-router/releases）。</a><br>    -router.start方法废弃，没有在源码或者realease log中发现对应的替代实现。</p>
 
       
     </div><!-- .entry-content -->
@@ -139,6 +131,22 @@
 
 
 
+
+<section id="comments">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+    var gitment = new Gitment({
+      owner: 'YXDay',
+      repo: 'YXDay.github.io',
+      oauth: {
+        client_id: '11f832eadc3159a45aad',
+        client_secret: 'b6ba3d17d69770cf99fc47b250cde0d1bf4c5d41',
+      },
+    })
+    gitment.render('comments')
+    </script>
+</section>
 
 
 </div></div>
@@ -230,7 +238,7 @@
 </div>
       </div>
       <footer id="colophon" role="contentinfo">
-    <p>&copy; 2017 thu
+    <p>&copy; 2018 thu
     All rights reserved.</p>
     <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>
