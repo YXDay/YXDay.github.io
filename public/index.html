@@ -64,6 +64,232 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-Chrome-DevTools-重要快捷键-Mac" class="post-Chrome-DevTools-重要快捷键-Mac post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/03/15/Chrome-DevTools-重要快捷键-Mac/">Chrome DevTools 重要快捷键(Mac)</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/15/Chrome-DevTools-重要快捷键-Mac/" data-id="cjes4hyvt000042k3vccp17kb" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="Chrome-DevTools-重要快捷键-Mac"><a href="#Chrome-DevTools-重要快捷键-Mac" class="headerlink" title="Chrome DevTools 重要快捷键(Mac)"></a>Chrome DevTools 重要快捷键(Mac)</h1><h2 id="访问-DevTools"><a href="#访问-DevTools" class="headerlink" title="访问 DevTools"></a>访问 DevTools</h2><p>打开/切换检查元素模式和浏览器窗口  Cmd + Shift + C<br>打开 Developer Tools 并聚焦到控制台  Cmd + Opt + J</p>
+<h2 id="全局"><a href="#全局" class="headerlink" title="全局"></a>全局</h2><p>显示设置  ?<br>上/下一个面板  Cmd + [/]<br>更改停靠位置  Cmd + Shift + D<br>Device Mode  Cmd + Shift + M<br>切换控制台 ESC<br>在所有源中搜索文本 Cmd + Opt + F<br>按文件名搜索（除了在 Timeline 上）  Cmd + O、Cmd + P</p>
+<h2 id="Elements"><a href="#Elements" class="headerlink" title="Elements"></a>Elements</h2><p>展开/折叠节点及其所有子节点  Opt + 点击箭头图标<br>隐藏元素  H<br>切换为以 HTML 形式编辑  F2</p>
+<h2 id="style"><a href="#style" class="headerlink" title="style"></a>style</h2><p>转到源中样式规则属性声明行  Cmd + 点击属性<br>在颜色定义值之间循环  Shift + 点击颜色选取器框<br>编辑下一个/上一个属性  Tab、Shift + Tab<br>以 10 为增量增大/减小值  Shift + Up、Shift + Down      PgUp、PgDown<br>以 100 为增量增大/减小值  Shift + PgUp、Shift + PgDown<br>以 0.1 为增量增大/减小值  Opt + 向上键、Opt + 向下键</p>
+<h2 id="Sources"><a href="#Sources" class="headerlink" title="Sources"></a>Sources</h2><p>暂停/继续脚本执行      F8、Cmd + \<br>越过下一个函数调用  F10、Cmd + ‘<br>进入下一个函数调用  F11、Cmd + ;<br>跳出当前函数  Shift + F11、Cmd + Shift + ;<br>转到行  Ctrl + G<br>转到成员  Cmd + Shift + O</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/15/Chrome-DevTools-重要快捷键-Mac/">
+    <time datetime="2018-03-15T06:17:01.000Z" class="entry-date">
+        2018-03-15
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chrome/">Chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevTools/">DevTools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快捷键/">快捷键</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-复盘-fix不同node-modules引起的bug" class="post-复盘-fix不同node-modules引起的bug post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/03/15/复盘-fix不同node-modules引起的bug/">复盘-fix不同node_modules引起的bug</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/15/复盘-fix不同node-modules引起的bug/" data-id="cjes4hyx2001t42k3u5wk49ic" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="复盘-fix不同node-modules引起的bug"><a href="#复盘-fix不同node-modules引起的bug" class="headerlink" title="复盘-fix不同node_modules引起的bug"></a>复盘-fix不同node_modules引起的bug</h1><p>一份代码,线上的node_modules包是已有的,线下的node_modules包是我近期通过package.json自行yarn得来的.<br>当我把线下的node_modules包替换到线上时,线上报错,此时线下正常.<br>顺着错误信息一番debug,乱七八糟的代码使人眼晕,也查不出什么所以然.<br>此时冷静分析一下:同一份代码,线下正常,线上出错,二者有何区别?</p>
+<ul>
+<li>环境</li>
+<li>构建方式<br>环境不去说他,小概率事件,构建方式有何不同呢,线下是develop构建,而线上是deploy,<br>二者的差别是,deploy的gulp流程多了rev,compress两个步骤,分而治之,证明是compress出了问题.<br>compress中的流程继续分而治之,是gulp-uglify这个包除了问题,对比一下,果然,旧的node_modules里gulp-uglify版本为2.0.0,新的为2.1.2,替换之,遂解决.<br>具体的原因日后再更新.</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/15/复盘-fix不同node-modules引起的bug/">
+    <time datetime="2018-03-15T06:16:04.000Z" class="entry-date">
+        2018-03-15
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-modules/">node_modules</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/复盘/">复盘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译/">编译</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-事件辨析" class="post-事件辨析 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/03/15/事件辨析/">事件辨析</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/15/事件辨析/" data-id="cjes4hywj000m42k3ql22l50q" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h2 id="HTML事件处理程序"><a href="#HTML事件处理程序" class="headerlink" title="HTML事件处理程序"></a>HTML事件处理程序</h2><p>即通过与事件处理程序同名的HTML特性来实现.<br><code>&lt;input type=&quot;button&quot; onclick=&quot;alert(&#39;HTML&#39;)&quot;&gt;</code></p>
+<ul>
+<li>有权访问全局作用域中任意代码.</li>
+<li>this值为事件的目标元素.</li>
+<li>作用域扩展至document以及本元素本身,即相当于<code>with(this)</code>.</li>
+<li>如果当前元素是一个表单输入元素,作用域扩展至整个表单元素,即相当于<code>with(this.form)</code>.</li>
+<li>生成event对象,不必自己定义,亦不必从函数参数列表中获取.</li>
+<li>存在时差问题,当HTML加载时,对应的JavaScript可能没有加载.</li>
+<li>前述提到的作用域扩展在浏览器间行为并不一致.</li>
+<li>可以通过设置当前元素DOM的对应事件处理属性为null的方式销毁事件.</li>
+<li>显然应该在事件到达元素本身的时候处理.<h2 id="DOM0级事件处理程序"><a href="#DOM0级事件处理程序" class="headerlink" title="DOM0级事件处理程序"></a>DOM0级事件处理程序</h2>DOM0指第四代浏览器(IE4.0, Netscape4.0)最初支持的DOM规则,并不是事实存在的标准.<br>将一个函数赋值给一个事件处理程序属性,首先必须取得一个要操作对象的引用.<br><code>let btn = document.getElementById(&#39;btn&#39;);
+btn.onclick = () =&gt; {
+  alert(&#39;DOM0&#39;);
+}</code></li>
+<li>简单,跨浏览器兼容.</li>
+<li>this引用当前元素.</li>
+<li>在冒泡阶段被处理</li>
+<li>销毁时设置对应属性为null <code>btn.onclick = null;</code><h2 id="DOM2级事件处理程序"><a href="#DOM2级事件处理程序" class="headerlink" title="DOM2级事件处理程序"></a>DOM2级事件处理程序</h2>addEventListener removeEventListener<br>接受三个参数,要处理的事件名,事件处理函数,布尔值(true,捕获阶段处理事件;false,冒泡阶段处理事件)</li>
+<li>this引用当前元素</li>
+<li>按顺序添加的事件按顺序执行</li>
+<li>addEventListener添加的事件只能由removeEventListener移除,移除时需参数相同,这意味着匿名事件处理函数将无法移除.</li>
+<li>捕获浏览器兼容性较差</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/15/事件辨析/">
+    <time datetime="2018-03-15T06:14:38.000Z" class="entry-date">
+        2018-03-15
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件/">事件</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-《你不知道的JavaScript》-上卷-读书笔记" class="post-《你不知道的JavaScript》-上卷-读书笔记 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/03/15/《你不知道的JavaScript》-上卷-读书笔记/">《你不知道的JavaScript》(上卷)读书笔记</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/15/《你不知道的JavaScript》-上卷-读书笔记/" data-id="cjes4hywf000g42k3ef9a5awz" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="《你不知道的JavaScript》-上卷-读书笔记"><a href="#《你不知道的JavaScript》-上卷-读书笔记" class="headerlink" title="《你不知道的JavaScript》(上卷)读书笔记"></a>《你不知道的JavaScript》(上卷)读书笔记</h1><h2 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h2><h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>事实上,JavaScript是一门编译语言,但与传统的编译语言不同,他不是提前编译的,编译结果也不能在分布式系统中进行移植.</p>
+<p>JavaScript引擎进行编译的步骤与传统语言非常相似,包括分词/词法分析,解析/语法分析,代码生成.</p>
+<p>比起那些编译过程只有三个步骤的语言的编译器,JavaScript在语法分析和代码生成阶段有特定的步骤对运行性能进行优化,包括对冗余元素进行优化等</p>
+<h3 id="LHS与RHS"><a href="#LHS与RHS" class="headerlink" title="LHS与RHS"></a>LHS与RHS</h3><ul>
+<li>LHS:左值查询,试图找到变量的容器本身,从而可以对其赋值.</li>
+<li>RHS:右值查询,与简单地查找某个变量的值别无二致.</li>
+<li>从概念上讲,LHS查找赋值的目标,RHS查找赋值的源头.<h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3>是定义在词法阶段的作用域,换句话说,是由你在写代码时将变量和块作用域写在哪里决定的,区别于动态作用域.<h4 id="欺骗词法作用域"><a href="#欺骗词法作用域" class="headerlink" title="欺骗词法作用域"></a>欺骗词法作用域</h4><h5 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h5></li>
+<li>接受一个字符串为参数,并将其中的内容视为好像在书写时就存在于程序中的这个位置的代码.</li>
+<li>严格模式下,eval有自己的词法作用域.</li>
+<li>JavaScript中还有一些类似的功能效果,例如setTimeout以及setInterval第一个参数(本质上还是调用了eval),以及new Function的最后一个参数.<h5 id="with"><a href="#with" class="headerlink" title="with"></a>with</h5></li>
+<li>尽管with块可以将一个对象处理为词法作用域,但是这个块内部正常的var声明比并不会被限制在这个块的作用域中,而是被添加到with所处的函数作用域中.</li>
+<li>严格模式下被禁用了.<h5 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h5>编译阶段的很多优化没法做了.<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><h4 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h4>区分函数声明和表达式最简单的方法是看function关键字出现在生命中的位置。如果function是声明中的第一个词，那么就是一个函数声明，否则就是一个函数表达式。<h4 id="匿名与具名"><a href="#匿名与具名" class="headerlink" title="匿名与具名"></a>匿名与具名</h4>始终给函数表达式命名是一个最佳实践。<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2></li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/15/《你不知道的JavaScript》-上卷-读书笔记/">
+    <time datetime="2018-03-15T06:12:32.000Z" class="entry-date">
+        2018-03-15
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/你不知道的JavaScript/">你不知道的JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-CSS-px" class="post-CSS-px post type-post status-publish format-standard hentry">
     <!---->
 
@@ -79,7 +305,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/03/03/CSS-px/" data-id="cjemk0cw10000t3k31vmecc4k" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/03/03/CSS-px/" data-id="cjes4hyvy000142k3r1ldik87" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -129,7 +355,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/02/21/POST和GET/" data-id="cjemk0cw90003t3k3iryytqh1" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/02/21/POST和GET/" data-id="cjes4hyw2000342k3py7nmg6o" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -221,7 +447,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/02/07/z-index要点/" data-id="cjemk0cwt000ht3k35objeqo3" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/02/07/z-index要点/" data-id="cjes4hywh000k42k3n6c1plav" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -267,7 +493,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/01/27/span换行/" data-id="cjemk0cwo000at3k37jyshzed" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/01/27/span换行/" data-id="cjes4hyw9000b42k39bh26467" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -310,7 +536,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/11/13/classification/" data-id="cjemk0cwc0005t3k370mmj53x" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/11/13/classification/" data-id="cjes4hyw4000442k33q9oquco" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -352,7 +578,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/08/html5标签辨析/" data-id="cjemk0cwm0008t3k3k6eq9so3" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/08/html5标签辨析/" data-id="cjes4hyw8000942k3ubehjj07" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -386,221 +612,6 @@
     
   <span class="article-delim">&#8226;</span>
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/标签/">标签</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/语义化/">语义化</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-电子书爬虫" class="post-电子书爬虫 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/10/07/电子书爬虫/">电子书爬虫app</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/07/电子书爬虫/" data-id="cjemk0cww000jt3k3f6e6ys6s" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>一个爬取市面上主流电子书购买渠道上电子书<em>价格</em>的app<br>名字还没想好…起名困难症<br>逻辑如下:</p>
-<ol>
-<li>搜索一个默认会返回无结果的词,现在是”<strong>__</strong>“,记录<em>主要</em>DOM结构(以下简称结构,此结果简称空白结果).</li>
-<li>搜索需要的书名<ul>
-<li>如果结构与空白结果相同,则无此电子书出售,结束.</li>
-<li>反之,进入第三步.</li>
-</ul>
-</li>
-<li>检索页面中含”¥”的第一个DOM标签,同时,当结果为多个时,应给出警告;提取距离该DOM标签最为接近的数字,进入比对集进行比对.</li>
-<li>打开比对集中最小值对应的app或网页</li>
-</ol>
-<p>代码在<a href="https://github.com/YXDay/e-bookCarwler" target="_blank" rel="noopener">这里</a></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/10/07/电子书爬虫/">
-    <time datetime="2016-10-07T15:38:56.000Z" class="entry-date">
-        2016-10-07
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版权/">版权</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书/">电子书</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-迁移完成" class="post-迁移完成 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/10/07/迁移完成/">迁移完成</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/07/迁移完成/" data-id="cjemk0cwy000nt3k3dx6iei12" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>个人blog从WordPress迁到Hexo了<br>头疼啊,为什么别人就能遇见讨人喜欢的背景图呢<br>还有icon…<br>hello,Hexo~</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/10/07/迁移完成/">
-    <time datetime="2016-10-07T03:51:13.000Z" class="entry-date">
-        2016-10-07
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/纪念/">纪念</a>
-  </div>
-
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-e5-85-bc-e5-ae-b9-e6-80-a7tips" class="post-e5-85-bc-e5-ae-b9-e6-80-a7tips post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/09/09/e5-85-bc-e5-ae-b9-e6-80-a7tips/">兼容性tips</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/09/09/e5-85-bc-e5-ae-b9-e6-80-a7tips/" data-id="cjemk0cwi0006t3k3tsesak1v" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <ol>
-<li>IE 10 及以下a标签里定义的img会被赋予一个边框<br>原因是浏览器通常会把代表超链接的图像（例如包含在 a 标签中的图像）显示在两个像素宽的边框里面，以表示读者可以通过选择这个图像来访问相关联的文档。 因为没有边框就意味着去掉了一种非常常见的超链接视觉指示效果，这使得读者可能不会像原来那么很容易就可以找到这些链接。</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/09/09/e5-85-bc-e5-ae-b9-e6-80-a7tips/">
-    <time datetime="2016-09-09T11:51:11.000Z" class="entry-date">
-        2016-09-09
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/兼容性/">兼容性</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE/">IE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85" class="post-vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/">vue2.0踩坑之旅</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/" data-id="cjemk0cwr000et3k3t471bdow" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>#升级Vue</p>
-<p>##引入Vue<br>Vue升级2.0，将compiler与runtime 分开，分成两个build，分别是:</p>
-<p>-Standalone build: includes both the compiler and the runtime. This functions basically exactly the same Vue 1.x does.</p>
-<p>-Runtime only build:since it doesn’t include the compiler, you need to either pre-compiled templates in a compile step, or manually written render functions. The npm package will export this build by default, since when consuming Vue from npm, you will likely be using a compilation step (with Browserify or Webpack), during which vueif or vue-loader will perform the template pre-compilation.</p>
-<p>默认引入Runtime only build，而我们在不想要改变过去的一系列构建模式的前提下，需要引入Standalone build，路径是’vue/dist/vue.js’(Runtime only build引入的实际上也是dist文件下的文件)</p>
-<p>##生命周期钩子<br>一定要注意vue2.0对生命周期钩子函数的大量改动：<br>init -&gt; beforeCreate<br> created<br> beforeDestroy<br> destroyed<br> beforeMount(new)<br> mounte(new)<br> beforeUpdate(new)<br> updated(new)<br> activated (new) (for keep-alive)<br> deactivated (new) (for keep-alive)<br> ready | deprecated, use mounted (there’s no longer the guarantee to be in-document)<br>activate | deprecated, moved into vue-router<br>beforeCompile | deprecated, use created<br>compiled | deprecated, use mounted<br>attached | deprecated, use custom in-dom check in other hooks<br>detached | deprecated, same as above</p>
-<p>#升级vue-router<br>    就我们目前的项目来说，问题主要出现在以下两点：<br>    -router.map方法废弃，此类方法统一作为属性加入到构造函数中（见<a href="https://github.com/vuejs/vue-router/releases）。" target="_blank" rel="noopener">https://github.com/vuejs/vue-router/releases）。</a><br>    -router.start方法废弃，没有在源码或者realease log中发现对应的替代实现。</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/08/22/vue2-0-e8-b8-a9-e5-9d-91-e4-b9-8b-e6-97-85/">
-    <time datetime="2016-08-22T11:13:48.000Z" class="entry-date">
-        2016-08-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue2-0/">vue2.0</a></li></ul>
 
     </footer>
 </article>
@@ -647,23 +658,23 @@
       <ul>
         
           <li>
+            <a href="/2018/03/15/Chrome-DevTools-重要快捷键-Mac/">Chrome DevTools 重要快捷键(Mac)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/复盘-fix不同node-modules引起的bug/">复盘-fix不同node_modules引起的bug</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/事件辨析/">事件辨析</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/《你不知道的JavaScript》-上卷-读书笔记/">《你不知道的JavaScript》(上卷)读书笔记</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/03/CSS-px/">CSS px</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/21/POST和GET/">POST和GET</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/07/z-index要点/">z-index要点</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/27/span换行/">行内元素完整换行</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/13/classification/">classification</a>
           </li>
         
       </ul>
@@ -675,7 +686,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE/">IE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/length/">length</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0/">vue2.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档/">文档</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版权/">版权</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子书/">电子书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语义化/">语义化</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/">Chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevTools/">DevTools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE/">IE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/length/">length</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-modules/">node_modules</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2-0/">vue2.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事件/">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/你不知道的JavaScript/">你不知道的JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复盘/">复盘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档/">文档</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版权/">版权</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子书/">电子书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译/">编译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语义化/">语义化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -684,7 +695,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/length/" style="font-size: 10px;">length</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue2-0/" style="font-size: 10px;">vue2.0</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/电子书/" style="font-size: 10px;">电子书</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/语义化/" style="font-size: 10px;">语义化</a>
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/DevTools/" style="font-size: 10px;">DevTools</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/length/" style="font-size: 10px;">length</a> <a href="/tags/node-modules/" style="font-size: 10px;">node_modules</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue2-0/" style="font-size: 10px;">vue2.0</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/你不知道的JavaScript/" style="font-size: 10px;">你不知道的JavaScript</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/复盘/" style="font-size: 10px;">复盘</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/电子书/" style="font-size: 10px;">电子书</a> <a href="/tags/编译/" style="font-size: 10px;">编译</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/语义化/" style="font-size: 10px;">语义化</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
     </div>
   </aside>
 
