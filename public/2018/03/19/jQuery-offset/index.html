@@ -13,19 +13,19 @@
   
   
   
-  <title>电子书爬虫app | 橘子园</title>
+  <title>jQuery offset() | 橘子园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个爬取市面上主流电子书购买渠道上电子书价格的app名字还没想好…起名困难症逻辑如下:  搜索一个默认会返回无结果的词,现在是”__“,记录主要DOM结构(以下简称结构,此结果简称空白结果). 搜索需要的书名 如果结构与空白结果相同,则无此电子书出售,结束. 反之,进入第三步.   检索页面中含”¥”的第一个DOM标签,同时,当结果为多个时,应给出警告;提取距离该DOM标签最为接近的数字,进入比对">
-<meta name="keywords" content="爬虫,Node.js,电子书,版权">
+  <meta name="description" content="定义.offset()方法返回对应元素边框盒（包括外边距）基于文档的坐标值。The .offset() method allows us to retrieve the current position of an element (specifically its border box, which excludes margins) relative to the document. 核心源码">
+<meta name="keywords" content="jQuery,位置,坐标,viewport,window,document">
 <meta property="og:type" content="article">
-<meta property="og:title" content="电子书爬虫app">
-<meta property="og:url" content="http://yoursite.com/2016/10/07/电子书爬虫/index.html">
+<meta property="og:title" content="jQuery offset()">
+<meta property="og:url" content="http://yoursite.com/2018/03/19/jQuery-offset/index.html">
 <meta property="og:site_name" content="橘子园">
-<meta property="og:description" content="一个爬取市面上主流电子书购买渠道上电子书价格的app名字还没想好…起名困难症逻辑如下:  搜索一个默认会返回无结果的词,现在是”__“,记录主要DOM结构(以下简称结构,此结果简称空白结果). 搜索需要的书名 如果结构与空白结果相同,则无此电子书出售,结束. 反之,进入第三步.   检索页面中含”¥”的第一个DOM标签,同时,当结果为多个时,应给出警告;提取距离该DOM标签最为接近的数字,进入比对">
-<meta property="og:updated_time" content="2018-03-12T13:37:12.547Z">
+<meta property="og:description" content="定义.offset()方法返回对应元素边框盒（包括外边距）基于文档的坐标值。The .offset() method allows us to retrieve the current position of an element (specifically its border box, which excludes margins) relative to the document. 核心源码">
+<meta property="og:updated_time" content="2018-03-19T07:44:55.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="电子书爬虫app">
-<meta name="twitter:description" content="一个爬取市面上主流电子书购买渠道上电子书价格的app名字还没想好…起名困难症逻辑如下:  搜索一个默认会返回无结果的词,现在是”__“,记录主要DOM结构(以下简称结构,此结果简称空白结果). 搜索需要的书名 如果结构与空白结果相同,则无此电子书出售,结束. 反之,进入第三步.   检索页面中含”¥”的第一个DOM标签,同时,当结果为多个时,应给出警告;提取距离该DOM标签最为接近的数字,进入比对">
+<meta name="twitter:title" content="jQuery offset()">
+<meta name="twitter:description" content="定义.offset()方法返回对应元素边框盒（包括外边距）基于文档的坐标值。The .offset() method allows us to retrieve the current position of an element (specifically its border box, which excludes margins) relative to the document. 核心源码">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -64,7 +64,7 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-电子书爬虫" class="post-电子书爬虫 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-jQuery-offset" class="post-jQuery-offset post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -72,45 +72,41 @@
         
   
     <h1 class="entry-title article-title">
-      电子书爬虫app
+      jQuery offset()
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/10/07/电子书爬虫/" data-id="cjexxdo52000kjuk3vb1wrq85" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/19/jQuery-offset/" data-id="cjexxdo4k0005juk3xp9mk3fe" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>一个爬取市面上主流电子书购买渠道上电子书<em>价格</em>的app<br>名字还没想好…起名困难症<br>逻辑如下:</p>
-<ol>
-<li>搜索一个默认会返回无结果的词,现在是”<strong>__</strong>“,记录<em>主要</em>DOM结构(以下简称结构,此结果简称空白结果).</li>
-<li>搜索需要的书名<ul>
-<li>如果结构与空白结果相同,则无此电子书出售,结束.</li>
-<li>反之,进入第三步.</li>
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>.offset()方法返回对应元素边框盒（包括外边距）<em>基于文档</em>的坐标值。<br>The .offset() method allows us to retrieve the current position of an element (specifically its border box, which excludes margins) <em>relative to the document</em>.</p>
+<h2 id="核心源码"><a href="#核心源码" class="headerlink" title="核心源码"></a>核心源码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Get document-relative position by adding viewport scroll to viewport-relative gBCR</span></span><br><span class="line">rect = elem.getBoundingClientRect();</span><br><span class="line">win = elem.ownerDocument.defaultView;</span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">    top: rect.top + win.pageYOffset,</span><br><span class="line">    left: rect.left + win.pageXOffset</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>getBoundingClientRect返回的是<em>基于视口</em>的坐标。<br>如果不希望属性值随视口变化，那么只要给top、left属性值加上当前的滚动位置（通过window.scrollX和window.scrollY），这样就可以获取与当前的滚动位置无关的（<em>基于文档的</em>）常量值。</p>
+<h2 id="视口，窗口，文档"><a href="#视口，窗口，文档" class="headerlink" title="视口，窗口，文档"></a>视口，窗口，文档</h2><ul>
+<li>视口（viewport）：当前浏览器可视区域</li>
+<li>窗口（window）：当前浏览器</li>
+<li>文档（document）：当前文档</li>
 </ul>
-</li>
-<li>检索页面中含”¥”的第一个DOM标签,同时,当结果为多个时,应给出警告;提取距离该DOM标签最为接近的数字,进入比对集进行比对.</li>
-<li>打开比对集中最小值对应的app或网页</li>
-</ol>
-<p>代码在<a href="https://github.com/YXDay/e-bookCarwler" target="_blank" rel="noopener">这里</a></p>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/10/07/电子书爬虫/">
-    <time datetime="2016-10-07T15:38:56.000Z" class="entry-date">
-        2016-10-07
+    <a href="/2018/03/19/jQuery-offset/">
+    <time datetime="2018-03-19T06:58:37.000Z" class="entry-date">
+        2018-03-19
     </time>
 </a>
     
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版权/">版权</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书/">电子书</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/document/">document</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viewport/">viewport</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/window/">window</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/位置/">位置</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坐标/">坐标</a></li></ul>
 
     </footer>
 </article>
@@ -120,10 +116,8 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/2016/10/08/html5标签辨析/" rel="prev"><span class="meta-nav">←</span> HTML5标签辨析</a></span>
     
-    
-        <span class="nav-next"><a href="/2016/10/07/迁移完成/" rel="next">迁移完成 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/2018/03/15/Chrome-DevTools-重要快捷键-Mac/" rel="next">Chrome DevTools 重要快捷键(Mac) <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
