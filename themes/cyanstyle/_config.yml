@@ -13,17 +13,15 @@ fancybox: true
 # Sidebar
 widgets:
 - about
-- category
 - recent_posts
-- tag
 - tagcloud
 - account
 
 # Miscellaneous
 google_analytics:
-duoshuo_shortname: 
-rss: 
-google_site_verification: 
-baidu_site_verification: 
-favicon: 
-music: 
+duoshuo_shortname:
+rss:
+google_site_verification:
+baidu_site_verification:
+favicon:
+music:
