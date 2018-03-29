@@ -1614,11 +1614,24 @@ a.comment-edit-link:hover {
 	padding-right: 1.714285714rem;
 	text-align: right;
 }
-.widget_search label {
-	display: block;
-	font-size: 13px;
-	font-size: 0.928571429rem;
-	line-height: 1.846153846;
+.widget_search input {
+	border: none;
+	border-radius: 0;
+    outline: none;
+	background: none;
+
+    border-bottom: 1px solid #000;
+}
+.widget_search input:-webkit-autofill {
+    -webkit-animation: autofill-fix 1s infinite;
+}
+@-webkit-keyframes autofill-fix {
+    from {
+        background-color: transparent
+    }
+    to {
+        background-color: transparent
+    }
 }
 .widget_twitter li {
 	list-style-type: none;
