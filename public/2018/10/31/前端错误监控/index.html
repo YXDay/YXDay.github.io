@@ -12,19 +12,19 @@
   
   
   
-  <title>《你不知道的JavaScript》(上卷)读书笔记 | 橘子园</title>
+  <title>前端错误监控 | 橘子园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="《你不知道的JavaScript》(上卷)读书笔记第一部分语言事实上,JavaScript是一门编译语言,但与传统的编译语言不同,他不是提前编译的,编译结果也不能在分布式系统中进行移植. JavaScript引擎进行编译的步骤与传统语言非常相似,包括分词/词法分析,解析/语法分析,代码生成. 比起那些编译过程只有三个步骤的语言的编译器,JavaScript在语法分析和代码生成阶段有特定的步骤对运行">
-<meta name="keywords" content="你不知道的JavaScript,JavaScript,读书笔记">
+  <meta name="description" content="监听内容1 静态资源4042 异步接口错误的上报3 vue error错误上报4 promise 捕获 ##原理  vue error 监听 vue捕获了 vue 运行中产生的错误，故无法直接使用全局错误监听的方式监听此类错误，需使用 vue 提供的errorHandler 接口来实现对错误的监听。   js error及 静态资源错误 均使用 addeventlistener 函数在 windo">
+<meta name="keywords" content="vue,JavaScript,错误监控">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《你不知道的JavaScript》(上卷)读书笔记">
-<meta property="og:url" content="yxday.github.io/2018/03/15/《你不知道的JavaScript》-上卷-读书笔记/index.html">
+<meta property="og:title" content="前端错误监控">
+<meta property="og:url" content="yxday.github.io/2018/10/31/前端错误监控/index.html">
 <meta property="og:site_name" content="橘子园">
-<meta property="og:description" content="《你不知道的JavaScript》(上卷)读书笔记第一部分语言事实上,JavaScript是一门编译语言,但与传统的编译语言不同,他不是提前编译的,编译结果也不能在分布式系统中进行移植. JavaScript引擎进行编译的步骤与传统语言非常相似,包括分词/词法分析,解析/语法分析,代码生成. 比起那些编译过程只有三个步骤的语言的编译器,JavaScript在语法分析和代码生成阶段有特定的步骤对运行">
-<meta property="og:updated_time" content="2018-10-31T09:05:30.938Z">
+<meta property="og:description" content="监听内容1 静态资源4042 异步接口错误的上报3 vue error错误上报4 promise 捕获 ##原理  vue error 监听 vue捕获了 vue 运行中产生的错误，故无法直接使用全局错误监听的方式监听此类错误，需使用 vue 提供的errorHandler 接口来实现对错误的监听。   js error及 静态资源错误 均使用 addeventlistener 函数在 windo">
+<meta property="og:updated_time" content="2018-10-31T09:13:33.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《你不知道的JavaScript》(上卷)读书笔记">
-<meta name="twitter:description" content="《你不知道的JavaScript》(上卷)读书笔记第一部分语言事实上,JavaScript是一门编译语言,但与传统的编译语言不同,他不是提前编译的,编译结果也不能在分布式系统中进行移植. JavaScript引擎进行编译的步骤与传统语言非常相似,包括分词/词法分析,解析/语法分析,代码生成. 比起那些编译过程只有三个步骤的语言的编译器,JavaScript在语法分析和代码生成阶段有特定的步骤对运行">
+<meta name="twitter:title" content="前端错误监控">
+<meta name="twitter:description" content="监听内容1 静态资源4042 异步接口错误的上报3 vue error错误上报4 promise 捕获 ##原理  vue error 监听 vue捕获了 vue 运行中产生的错误，故无法直接使用全局错误监听的方式监听此类错误，需使用 vue 提供的errorHandler 接口来实现对错误的监听。   js error及 静态资源错误 均使用 addeventlistener 函数在 windo">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -63,7 +63,7 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-《你不知道的JavaScript》-上卷-读书笔记" class="post-《你不知道的JavaScript》-上卷-读书笔记 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-前端错误监控" class="post-前端错误监控 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -71,46 +71,84 @@
         
   
     <h1 class="entry-title article-title">
-      《你不知道的JavaScript》(上卷)读书笔记
+      前端错误监控
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="yxday.github.io/2018/03/15/《你不知道的JavaScript》-上卷-读书笔记/" data-id="cjnwybcej000mggk31922tlyb" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="yxday.github.io/2018/10/31/前端错误监控/" data-id="cjnwybcep000tggk3vlp36sb4" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h1 id="《你不知道的JavaScript》-上卷-读书笔记"><a href="#《你不知道的JavaScript》-上卷-读书笔记" class="headerlink" title="《你不知道的JavaScript》(上卷)读书笔记"></a>《你不知道的JavaScript》(上卷)读书笔记</h1><h2 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h2><h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>事实上,JavaScript是一门编译语言,但与传统的编译语言不同,他不是提前编译的,编译结果也不能在分布式系统中进行移植.</p>
-<p>JavaScript引擎进行编译的步骤与传统语言非常相似,包括分词/词法分析,解析/语法分析,代码生成.</p>
-<p>比起那些编译过程只有三个步骤的语言的编译器,JavaScript在语法分析和代码生成阶段有特定的步骤对运行性能进行优化,包括对冗余元素进行优化等</p>
-<h3 id="LHS与RHS"><a href="#LHS与RHS" class="headerlink" title="LHS与RHS"></a>LHS与RHS</h3><ul>
-<li>LHS:左值查询,试图找到变量的容器本身,从而可以对其赋值.</li>
-<li>RHS:右值查询,与简单地查找某个变量的值别无二致.</li>
-<li>从概念上讲,LHS查找赋值的目标,RHS查找赋值的源头.<h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3>是定义在词法阶段的作用域,换句话说,是由你在写代码时将变量和块作用域写在哪里决定的,区别于动态作用域.<h4 id="欺骗词法作用域"><a href="#欺骗词法作用域" class="headerlink" title="欺骗词法作用域"></a>欺骗词法作用域</h4><h5 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h5></li>
-<li>接受一个字符串为参数,并将其中的内容视为好像在书写时就存在于程序中的这个位置的代码.</li>
-<li>严格模式下,eval有自己的词法作用域.</li>
-<li>JavaScript中还有一些类似的功能效果,例如setTimeout以及setInterval第一个参数(本质上还是调用了eval),以及new Function的最后一个参数.<h5 id="with"><a href="#with" class="headerlink" title="with"></a>with</h5></li>
-<li>尽管with块可以将一个对象处理为词法作用域,但是这个块内部正常的var声明比并不会被限制在这个块的作用域中,而是被添加到with所处的函数作用域中.</li>
-<li>严格模式下被禁用了.<h5 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h5>编译阶段的很多优化没法做了.<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><h4 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h4>区分函数声明和表达式最简单的方法是看function关键字出现在生命中的位置。如果function是声明中的第一个词，那么就是一个函数声明，否则就是一个函数表达式。<h4 id="匿名与具名"><a href="#匿名与具名" class="headerlink" title="匿名与具名"></a>匿名与具名</h4>始终给函数表达式命名是一个最佳实践。<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2></li>
+        <h1 id="监听内容"><a href="#监听内容" class="headerlink" title="监听内容"></a>监听内容</h1><p>1 静态资源404<br>2 异步接口错误的上报<br>3 vue error错误上报<br>4 promise 捕获</p>
+<p>##原理</p>
+<ol>
+<li>vue error 监听<ul>
+<li>vue捕获了 vue 运行中产生的错误，故无法直接使用全局错误监听的方式监听此类错误，需使用 vue 提供的errorHandler 接口来实现对错误的监听。</li>
 </ul>
+</li>
+<li>js error及 静态资源错误<ul>
+<li>均使用 addeventlistener 函数在 window 上添加 error 事件监听。</li>
+<li>对于静态资源错误，不会冒泡，故上述监听函数应使用捕获模式。</li>
+<li>静态资源的网络相关错误信息（如错误码）无法通过常规方式得到，故需在监听到静态资源错误的时候，对发生错误的链接发送一个 HEAD 的请求，以获取对应的网络相关错误信息。</li>
+<li>HEAD方法跟GET方法相同，只不过服务器响应时不会返回消息体。一个HEAD请求的响应中，HTTP头中包含的元信息应该和一个GET请求的响应消息相同。这种方法可以用来获取请求中隐含的元信息，而不用传输实体本身。也经常用来测试超链接的有效性、可用性和最近的修改。</li>
+</ul>
+</li>
+<li>异步接口错误<ul>
+<li>重写XMLHttpRequest类的 send 和 open 方法，记录相关请求参数。</li>
+<li>监听readystatechange事件，当 status 为表示错误的状态码（即大于等于400）时，上报错误</li>
+</ul>
+</li>
+<li>promise 捕获<br> 　当我们希望在浏览器上捕获全局错误时会监听 window 对象的 error 事件，可是 error 事件只是捕获错误而已，对于 Promise 的 reject 未处理是不会触发的。如今在业务代码中我们越来越多地使用 Promise，导致很多被放在 Promise 中处理的逻辑错误仅仅是被 reject 没有触发 error。<br>　　通过 unhandledrejection 事件，我们就可以捕获未处理的 reject 。<br>　　因为 unhandledrejection 事件的接口中不包含 error 相关的信息，故我们无法获取堆栈信息，除非在 reject 的时候入参设置为一个 error 对象（如 <code>reject（new Error(&#39;error&#39;)</code>）</li>
+</ol>
+<p>##三种错误类型</p>
+<p>###JavaScript错误</p>
+<ul>
+<li><strong>即一切跟 JavaScript 相关的错误</strong>，包括<ul>
+<li>JavaScript运行时错误</li>
+<li>JavaScript语法错误</li>
+<li>Promise reject 未处理</li>
+<li>vue 运行时错误</li>
+<li>用户自己抛出的错误。</li>
+</ul>
+</li>
+<li>这些错误的共同特点是有堆栈信息，且堆栈信息有意义。<br>###静态资源错误</li>
+<li>即静态资源加载错误，如图片链接404等。</li>
+<li>这些错误的共同特点是，有 DOM 信息。<h3 id="AJAX错误"><a href="#AJAX错误" class="headerlink" title="AJAX错误"></a>AJAX错误</h3></li>
+<li>即 AJAX 请求时发生的错误，如服务器返回400，500等。</li>
+<li>这些错误的共同特点不言而喻，都是 AJAX 请求。</li>
+<li>后续考虑升级成对 HTTP 请求的监听</li>
+</ul>
+<p>##压缩<br>使用lz-string</p>
+<p>###压缩效率<br><strong>原大小的35.63%，减少了64.37%</strong></p>
+<p>####压缩方式<br><strong>gzip</strong></p>
+<p>####gzip与deflate对比<br>gzip的基础是DEFLATE，DEFLATE是LZ77与哈夫曼编码的一个组合体，二者区别主要有：</p>
+<ol>
+<li>两者都是使用Gzip压缩算法</li>
+<li>deflate压缩速度略快，gzip压缩比略高。默认情况下，gzip会比deflate多压4%-6%</li>
+<li>gzip对CPU占用要高一些，deflate是专门为保护性能的压缩模块，它仅需很小的资源来压缩文件<br>综上，我们更关注压缩比，故选择 gzip</li>
+</ol>
+<h2 id="错误合并逻辑"><a href="#错误合并逻辑" class="headerlink" title="错误合并逻辑"></a>错误合并逻辑</h2><h3 id="javascriptError"><a href="#javascriptError" class="headerlink" title="javascriptError"></a>javascriptError</h3><p>所在文件 类型 信息共5个因素一致即为同一错误</p>
+<h3 id="httpError"><a href="#httpError" class="headerlink" title="httpError"></a>httpError</h3><p> url status statusText 3个因素一致即为同一错误</p>
+<h3 id="resourceError"><a href="#resourceError" class="headerlink" title="resourceError"></a>resourceError</h3><p>url status statusText xpath 四个因素一致即为同一错误</p>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2018/03/15/《你不知道的JavaScript》-上卷-读书笔记/">
-    <time datetime="2018-03-15T06:12:32.000Z" class="entry-date">
-        2018-03-15
+    <a href="/2018/10/31/前端错误监控/">
+    <time datetime="2018-10-31T09:05:43.000Z" class="entry-date">
+        2018-10-31
     </time>
 </a>
     
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/你不知道的JavaScript/">你不知道的JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误监控/">错误监控</a></li></ul>
 
     </footer>
 </article>
@@ -120,10 +158,8 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/2018/03/15/事件辨析/" rel="prev"><span class="meta-nav">←</span> 事件辨析</a></span>
     
-    
-        <span class="nav-next"><a href="/2017/03/03/CSS-px/" rel="next">CSS px <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/2018/03/19/jQuery-offset/" rel="next">jQuery offset() <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
