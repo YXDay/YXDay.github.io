@@ -917,7 +917,7 @@ btn.onclick = () =&gt; {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-18 21:00:58" itemprop="dateModified" datetime="2020-05-18T21:00:58+08:00">2020-05-18</time>
+                <time title="修改时间：2020-05-18 21:53:45" itemprop="dateModified" datetime="2020-05-18T21:53:45+08:00">2020-05-18</time>
               </span>
 
           
@@ -932,6 +932,10 @@ btn.onclick = () =&gt; {
 
       
           <p>有这样一个需求,各个标签用行内元素(例如span)包裹(这样做往往是考虑到HTML语义),当容器宽度不足时,<em>完整换行</em>,即当行内剩余空间不足展示一个标签时,换行,而非标签内分断.<br>稍有常识的人一定知道,直接用span是不行的.<br>解决的方案当然也是十分简单,设置这些span的display属性为inline-block就可以了.<br>值得吐槽的是,chrome显示的行内元素的padding区域在出现换行的时候,会在每一行都显示,这样就会出现除最后一行外,其他行的内容会在”padding区域”(实际上并不是)显示,可能会对一些新手造成困扰.<br>Firefox显示正常.</p>
+<hr>
+<p>2020-5-18</p>
+<p>设置这些span的display属性为inline-block怎么就可以了呢？<br>是因为设置为inline-block的元素等同行内替换元素，无换行，就好比一个图片，图片怎么可能换行呢？当然这里说的换行不是指其内容不可换行，而是指其自身不可换行（比如匿名文本元素和普通的行内非替换元素自身就可以换行）</p>
+<p>图画里 龙不吟虎不啸 小小书童可笑可笑</p>
 
       
     </div>
@@ -1025,7 +1029,7 @@ btn.onclick = () =&gt; {
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
