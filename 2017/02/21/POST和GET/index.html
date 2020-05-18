@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yxday.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="区别根源上来说,参看RFC2616 GETThe GET method means retrieve whatever information (in the form of an   entity) is identified by the Request-URI. If the Request-URI refers   to a data-producing process, it is th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POST和GET">
+<meta property="og:url" content="yxday.github.io/2017/02/21/POST和GET/index.html">
+<meta property="og:site_name" content="橘子园">
+<meta property="og:description" content="区别根源上来说,参看RFC2616 GETThe GET method means retrieve whatever information (in the form of an   entity) is identified by the Request-URI. If the Request-URI refers   to a data-producing process, it is th">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-18T13:00:58.654Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="POST和GET">
+<meta name="twitter:description" content="区别根源上来说,参看RFC2616 GETThe GET method means retrieve whatever information (in the form of an   entity) is identified by the Request-URI. If the Request-URI refers   to a data-producing process, it is th">
+
+<link rel="canonical" href="yxday.github.io/2017/02/21/POST和GET/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>POST和GET | 橘子园</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子园</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">种橘子的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="yxday.github.io/2017/02/21/POST和GET/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="thu">
+      <meta itemprop="description" content="主要是前端的技术...也不排除...千万不要写...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子园">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          POST和GET
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-02-21 14:09:53" itemprop="dateCreated datePublished" datetime="2017-02-21T14:09:53+08:00">2017-02-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-18 21:00:58" itemprop="dateModified" datetime="2020-05-18T21:00:58+08:00">2020-05-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>根源上来说,参看<a href="https://tools.ietf.org/html/rfc2616#page-53" target="_blank" rel="noopener">RFC2616</a></p>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>The GET method means retrieve whatever information (in the form of an<br>   entity) is identified by the Request-URI. If the Request-URI refers<br>   to a data-producing process, it is the produced data which shall be<br>   returned as the entity in the response and not the source text of the<br>   process, unless that text happens to be the output of the process.</p>
+<p>   The semantics of the GET method change to a “conditional GET” if the<br>   request message includes an If-Modified-Since, If-Unmodified-Since,<br>   If-Match, If-None-Match, or If-Range header field. A conditional GET<br>   method requests that the entity be transferred only under the<br>   circumstances described by the conditional header field(s). The<br>   conditional GET method is intended to reduce unnecessary network<br>   usage by allowing cached entities to be refreshed without requiring<br>   multiple requests or transferring data already held by the client.</p>
+<p>   The semantics of the GET method change to a “partial GET” if the<br>   request message includes a Range header field. A partial GET requests<br>   that only part of the entity be transferred, as described in section<br>   14.35. The partial GET method is intended to reduce unnecessary<br>   network usage by allowing partially-retrieved entities to be<br>   completed without transferring data already held by the client.</p>
+<p>   The response to a GET request is cacheable if and only if it meets<br>   the requirements for HTTP caching described in section 13.</p>
+<p>   See section 15.1.3 for security considerations when used for forms.</p>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><p>The POST method is used to request that the origin server accept the<br>   entity enclosed in the request as a new subordinate of the resource<br>   identified by the Request-URI in the Request-Line. POST is designed<br>   to allow a uniform method to cover the following functions:</p>
+<pre><code>- Annotation of existing resources;
+
+- Posting a message to a bulletin board, newsgroup, mailing list,
+  or similar group of articles;
+
+- Providing a block of data, such as the result of submitting a
+  form, to a data-handling process;
+
+- Extending a database through an append operation.
+</code></pre><p>   The actual function performed by the POST method is determined by the<br>   server and is usually dependent on the Request-URI. The posted entity<br>   is subordinate to that URI in the same way that a file is subordinate<br>   to a directory containing it, a news article is subordinate to a<br>   newsgroup to which it is posted, or a record is subordinate to a<br>   database.</p>
+<p>   The action performed by the POST method might not result in a<br>   resource that can be identified by a URI. In this case, either 200<br>   (OK) or 204 (No Content) is the appropriate response status,<br>   depending on whether or not the response includes an entity that<br>   describes the result.</p>
+<p>   If a resource has been created on the origin server, the response<br>   SHOULD be 201 (Created) and contain an entity which describes the<br>   status of the request and refers to the new resource, and a Location<br>   header (see section 14.30).</p>
+<p>   Responses to this method are not cacheable, unless the response<br>   includes appropriate Cache-Control or Expires header fields. However,<br>   the 303 (See Other) response can be used to direct the user agent to<br>   retrieve a cacheable resource.</p>
+<p>   POST requests MUST obey the message transmission requirements set out<br>   in section 8.2.</p>
+<p>   See section 15.1.3 for security considerations.</p>
+<p>可知,二者<strong>最本质</strong>的区别在于:</p>
+<pre><code>- GET 方法意思是获取被请求 URI（Request-URI）指定的信息（以实体的格式).
+- POST 方法被用于请求源服务器接受请求中的实体作为请求资源的一个新的从属物.
+</code></pre><p>除此之外,二者<strong>较为本质</strong>的区别还有:</p>
+<pre><code>- GET幂等,POST不幂等.
+- GET强制服务器支持,而POST在规范(HTTP/1.1)中为可选支持.
+- GET请求的相应是可缓存的,POST 方法的响应是不可缓存的。除非响应里有合适的 Cache-Control 或者 Expires 头域。然而,303响应能被用户代理利用去获得可缓存的响应
+</code></pre><p>我们再去看一下目前充斥于搜索引擎搜索结果的所谓二者的区别:</p>
+<pre><code>- 后退/刷新时,get无害(相当于重新获取),post会重新提交(重新修改):基于二者**本质区别**
+- GET 请求可被缓存,POST不可以:正确.
+- GET 请求参数保留在浏览器历史记录中,而POST不可以:因为GET参数就在url中,显然.
+- GET 请求可被收藏为书签,POST不可以:同上,显然.
+- GET 请求不应在处理敏感数据时使用:显然.
+- GET 请求有长度限制:错误,GET请求长度体现在url,而http相关规范**从来没有**规定过url的长度限制,所谓的限制只是**特定浏览器**的限制.多为2048B或者1024B
+- GET 请求只应当用于取回数据
+- GET编码类型限定为application/x-www-form-urlencoded,POST有多种类型(下面会总结一些常用的类型)
+- GET只允许ASCII数据类型,POST无限制:大多数浏览器服务器如此实现
+- GET方法产生一个TCP数据包；POST方法产生两个TCP数据包:同上,比如Firefox就不是这么玩的.
+- 安全性,呵呵呵呵呵
+- 可见性,同上.
+</code></pre><p>一言以蔽之,除了上述的<strong>本质区别</strong>,<strong>较为本质的区别</strong>,其他GET和POST的玩法都是浏览器,服务器的规定而已,我们可以给POST用url传参,也可以给GET加上报文体,毕竟HTTP规范只在语义上规定了二者嘛.</p>
+<h2 id="POST的content-type"><a href="#POST的content-type" class="headerlink" title="POST的content-type"></a>POST的content-type</h2><p>比较常见的</p>
+<ul>
+<li>application/x-www-form-urlencoded 在报文体里以和GET相同的格式传输数据</li>
+<li>application/json 消息主体是序列化的JSON字符串</li>
+<li>multipart/form-data 传文件<h2 id="表单的content-type"><a href="#表单的content-type" class="headerlink" title="表单的content-type"></a>表单的content-type</h2>正常情况下,默认application/x-www-form-urlencoded,可换成multipart/form-data,具体参见<a href="https://www.w3.org/TR/html401/cover.html#minitoc" target="_blank" rel="noopener">W3C相关资料</a></li>
+</ul>
+<p>部分信息为道听途说,未经验证,如有谬误,欢迎指正.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/02/07/z-index要点/" rel="prev" title="z-index要点">
+      <i class="fa fa-chevron-left"></i> z-index要点
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/03/03/CSS-px/" rel="next" title="CSS px">
+      CSS px <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.</span> <span class="nav-text">区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET"><span class="nav-number">1.1.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST"><span class="nav-number">1.2.</span> <span class="nav-text">POST</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST的content-type"><span class="nav-number">2.</span> <span class="nav-text">POST的content-type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单的content-type"><span class="nav-number">3.</span> <span class="nav-text">表单的content-type</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">thu</p>
+  <div class="site-description" itemprop="description">主要是前端的技术...也不排除...千万不要写...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">thu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yxday.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="事件HTML事件处理程序即通过与事件处理程序同名的HTML特性来实现.&amp;lt;input type=&amp;quot;button&amp;quot; onclick=&amp;quot;alert(&amp;#39;HTML&amp;#39;)&amp;quot;&amp;gt;  有权访问全局作用域中任意代码. this值为事件的目标元素. 作用域扩展至document以及本元素本身,即相当于with(this). 如果当前元素是一个表单输入元素">
+<meta name="keywords" content="JavaScript,事件,HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件辨析">
+<meta property="og:url" content="yxday.github.io/2018/03/15/事件辨析/index.html">
+<meta property="og:site_name" content="橘子园">
+<meta property="og:description" content="事件HTML事件处理程序即通过与事件处理程序同名的HTML特性来实现.&amp;lt;input type=&amp;quot;button&amp;quot; onclick=&amp;quot;alert(&amp;#39;HTML&amp;#39;)&amp;quot;&amp;gt;  有权访问全局作用域中任意代码. this值为事件的目标元素. 作用域扩展至document以及本元素本身,即相当于with(this). 如果当前元素是一个表单输入元素">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-18T13:00:58.656Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事件辨析">
+<meta name="twitter:description" content="事件HTML事件处理程序即通过与事件处理程序同名的HTML特性来实现.&amp;lt;input type=&amp;quot;button&amp;quot; onclick=&amp;quot;alert(&amp;#39;HTML&amp;#39;)&amp;quot;&amp;gt;  有权访问全局作用域中任意代码. this值为事件的目标元素. 作用域扩展至document以及本元素本身,即相当于with(this). 如果当前元素是一个表单输入元素">
+
+<link rel="canonical" href="yxday.github.io/2018/03/15/事件辨析/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>事件辨析 | 橘子园</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子园</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">种橘子的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="yxday.github.io/2018/03/15/事件辨析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="thu">
+      <meta itemprop="description" content="主要是前端的技术...也不排除...千万不要写...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子园">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          事件辨析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-03-15 14:14:38" itemprop="dateCreated datePublished" datetime="2018-03-15T14:14:38+08:00">2018-03-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-18 21:00:58" itemprop="dateModified" datetime="2020-05-18T21:00:58+08:00">2020-05-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h2 id="HTML事件处理程序"><a href="#HTML事件处理程序" class="headerlink" title="HTML事件处理程序"></a>HTML事件处理程序</h2><p>即通过与事件处理程序同名的HTML特性来实现.<br><code>&lt;input type=&quot;button&quot; onclick=&quot;alert(&#39;HTML&#39;)&quot;&gt;</code></p>
+<ul>
+<li>有权访问全局作用域中任意代码.</li>
+<li>this值为事件的目标元素.</li>
+<li>作用域扩展至document以及本元素本身,即相当于<code>with(this)</code>.</li>
+<li>如果当前元素是一个表单输入元素,作用域扩展至整个表单元素,即相当于<code>with(this.form)</code>.</li>
+<li>生成event对象,不必自己定义,亦不必从函数参数列表中获取.</li>
+<li>存在时差问题,当HTML加载时,对应的JavaScript可能没有加载.</li>
+<li>前述提到的作用域扩展在浏览器间行为并不一致.</li>
+<li>可以通过设置当前元素DOM的对应事件处理属性为null的方式销毁事件.</li>
+<li>显然应该在事件到达元素本身的时候处理.<h2 id="DOM0级事件处理程序"><a href="#DOM0级事件处理程序" class="headerlink" title="DOM0级事件处理程序"></a>DOM0级事件处理程序</h2>DOM0指第四代浏览器(IE4.0, Netscape4.0)最初支持的DOM规则,并不是事实存在的标准.<br>将一个函数赋值给一个事件处理程序属性,首先必须取得一个要操作对象的引用.<br><code>let btn = document.getElementById(&#39;btn&#39;);
+btn.onclick = () =&gt; {
+  alert(&#39;DOM0&#39;);
+}</code></li>
+<li>简单,跨浏览器兼容.</li>
+<li>this引用当前元素.</li>
+<li>在冒泡阶段被处理</li>
+<li>销毁时设置对应属性为null <code>btn.onclick = null;</code><h2 id="DOM2级事件处理程序"><a href="#DOM2级事件处理程序" class="headerlink" title="DOM2级事件处理程序"></a>DOM2级事件处理程序</h2>addEventListener removeEventListener<br>接受三个参数,要处理的事件名,事件处理函数,布尔值(true,捕获阶段处理事件;false,冒泡阶段处理事件)</li>
+<li>this引用当前元素</li>
+<li>按顺序添加的事件按顺序执行</li>
+<li>addEventListener添加的事件只能由removeEventListener移除,移除时需参数相同,这意味着匿名事件处理函数将无法移除.</li>
+<li>捕获浏览器兼容性较差</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/事件/" rel="tag"># 事件</a>
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/15/《你不知道的JavaScript》-上卷-读书笔记/" rel="prev" title="《你不知道的JavaScript》(上卷)读书笔记">
+      <i class="fa fa-chevron-left"></i> 《你不知道的JavaScript》(上卷)读书笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/03/15/复盘-fix不同node-modules引起的bug/" rel="next" title="复盘-fix不同node_modules引起的bug">
+      复盘-fix不同node_modules引起的bug <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事件"><span class="nav-number">1.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML事件处理程序"><span class="nav-number">1.1.</span> <span class="nav-text">HTML事件处理程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM0级事件处理程序"><span class="nav-number">1.2.</span> <span class="nav-text">DOM0级事件处理程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM2级事件处理程序"><span class="nav-number">1.3.</span> <span class="nav-text">DOM2级事件处理程序</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">thu</p>
+  <div class="site-description" itemprop="description">主要是前端的技术...也不排除...千万不要写...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">thu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
