@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="description" content="主要是前端的技术...也不排除...千万不要写..." />
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.6.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-  
-  
-  
-  
-  
-  <title>前端错误监控 | 橘子园</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yxday.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
   <meta name="description" content="监听内容1 静态资源4042 异步接口错误的上报3 vue error错误上报4 promise 捕获 原理 vue error 监听 vue捕获了 vue 运行中产生的错误，故无法直接使用全局错误监听的方式监听此类错误，需使用 vue 提供的errorHandler 接口来实现对错误的监听。   js error及 静态资源错误 均使用 addeventlistener 函数在 window 上">
 <meta name="keywords" content="vue,JavaScript,错误监控">
 <meta property="og:type" content="article">
@@ -21,68 +27,174 @@
 <meta property="og:url" content="yxday.github.io/2018/10/31/前端错误监控/index.html">
 <meta property="og:site_name" content="橘子园">
 <meta property="og:description" content="监听内容1 静态资源4042 异步接口错误的上报3 vue error错误上报4 promise 捕获 原理 vue error 监听 vue捕获了 vue 运行中产生的错误，故无法直接使用全局错误监听的方式监听此类错误，需使用 vue 提供的errorHandler 接口来实现对错误的监听。   js error及 静态资源错误 均使用 addeventlistener 函数在 window 上">
-<meta property="og:updated_time" content="2018-10-31T09:25:28.985Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-18T13:00:58.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端错误监控">
 <meta name="twitter:description" content="监听内容1 静态资源4042 异步接口错误的上报3 vue error错误上报4 promise 捕获 原理 vue error 监听 vue捕获了 vue 运行中产生的错误，故无法直接使用全局错误监听的方式监听此类错误，需使用 vue 提供的errorHandler 接口来实现对错误的监听。   js error及 静态资源错误 均使用 addeventlistener 函数在 window 上">
-  
-  
-    <link rel="icon" href="/css/images/favicon.ico">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+<link rel="canonical" href="yxday.github.io/2018/10/31/前端错误监控/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>前端错误监控 | 橘子园</title>
   
 
-  <meta name="google-site-verification" content="PxYdO0Jmez3ae-gYahqeolRvGsm6KLNhVeImhgWRuxk" />
-  <!-- baidu webmaster push -->
-  <!-- <script src='//push.zhanzhang.baidu.com/push.js'></script> -->
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
-<body class="home blog custom-background custom-font-enabled single-author">
-  <div id="page" class="hfeed site">
-      <header id="masthead" class="site-header" role="banner">
-    <hgroup>
-      <h1 class="site-title">
-        <a href="/" title="橘子园" rel="home">橘子园</a>
-      </h1>
-      
-        <h2 class="site-description">
-          <a href="/" id="subtitle">种橘子的地方</a>
-        </h2>
-      
-    </hgroup>
 
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-            <button class="menu-toggle">菜单</button>
-            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
-            <div class="menu-main-container">
-                <ul id="menu-main" class="nav-menu">
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
-                
-                </ul>
-            </div>
-    </nav>
-</header>
-      <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-前端错误监控" class="post-前端错误监控 post type-post status-publish format-standard hentry">
-    <!---->
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title article-title">
-      前端错误监控
-    </h1>
-  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-        
-        <div class="comments-link">
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">橘子园</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">种橘子的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
-            <a href="javascript:void(0);" data-url="yxday.github.io/2018/10/31/前端错误监控/" data-id="cjnwyh59n000mksk32i7dt1p9" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
 
-    <div class="entry-content">
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="yxday.github.io/2018/10/31/前端错误监控/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="thu">
+      <meta itemprop="description" content="主要是前端的技术...也不排除...千万不要写...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橘子园">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端错误监控
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-31 17:05:43" itemprop="dateCreated datePublished" datetime="2018-10-31T17:05:43+08:00">2018-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-18 21:00:58" itemprop="dateModified" datetime="2020-05-18T21:00:58+08:00">2020-05-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
         <h1 id="监听内容"><a href="#监听内容" class="headerlink" title="监听内容"></a>监听内容</h1><p>1 静态资源404<br>2 异步接口错误的上报<br>3 vue error错误上报<br>4 promise 捕获</p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol>
@@ -133,148 +245,188 @@
 <h3 id="httpError"><a href="#httpError" class="headerlink" title="httpError"></a>httpError</h3><p> url status statusText 3个因素一致即为同一错误</p>
 <h3 id="resourceError"><a href="#resourceError" class="headerlink" title="resourceError"></a>resourceError</h3><p>url status statusText xpath 四个因素一致即为同一错误</p>
 
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/10/31/前端错误监控/">
-    <time datetime="2018-10-31T09:05:43.000Z" class="entry-date">
-        2018-10-31
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误监控/">错误监控</a></li></ul>
-
-    </footer>
-</article>
-
-
-    
-<nav class="nav-single">
-    <h3 class="assistive-text">文章导航</h3>
-    
-    
-        <span class="nav-next"><a href="/2018/03/19/jQuery-offset/" rel="next">jQuery offset() <span class="meta-nav">→</span></a></span>
-    
-</nav><!-- .nav-single -->
-
-
-
-
-
-
-<section id="comments">
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    <script>
-    var gitment = new Gitment({
-      owner: 'YXDay',
-      repo: 'YXDay.github.io',
-      oauth: {
-        client_id: '11f832eadc3159a45aad',
-        client_secret: 'b6ba3d17d69770cf99fc47b250cde0d1bf4c5d41',
-      },
-    })
-    gitment.render('comments')
-    </script>
-</section>
-
-
-</div></div>
-        <div id="secondary" class="widget-area" role="complementary">
-  
-    <aside id="search" class="widget widget_search">
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="yxday.github.io"></form>
-</aside>
-  
-    <aside class="widget">
-    <h3 class="widget-title">关于我</h3>
-    <div class="widget-content">
-      <p>邺则邺城水漳水，出没岂随人眼底</p>
-      <p>邮箱：thufelixc(at)gmail.com</p>
-      <p>微信：dyx278923692</p>
-      <p>QQ: 278923692</p>
     </div>
-</aside>
-  
+
     
-  <aside class="widget">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget-content">
-      <ul>
-        
-          <li>
-            <a href="/2018/10/31/前端错误监控/">前端错误监控</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/19/jQuery-offset/">jQuery offset()</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/15/Chrome-DevTools-重要快捷键-Mac/">Chrome DevTools 重要快捷键(Mac)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/15/复盘-fix不同node-modules引起的bug/">复盘-fix不同node_modules引起的bug</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/15/事件辨析/">事件辨析</a>
-          </li>
-        
-      </ul>
-    </div>
-  </aside>
-
-  
     
-  <aside class="widget">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget-content tagcloud">
-      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/DevTools/" style="font-size: 10px;">DevTools</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/document/" style="font-size: 10px;">document</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/length/" style="font-size: 10px;">length</a> <a href="/tags/node-modules/" style="font-size: 10px;">node_modules</a> <a href="/tags/viewport/" style="font-size: 10px;">viewport</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/vue2-0/" style="font-size: 10px;">vue2.0</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/位置/" style="font-size: 10px;">位置</a> <a href="/tags/你不知道的JavaScript/" style="font-size: 10px;">你不知道的JavaScript</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/坐标/" style="font-size: 10px;">坐标</a> <a href="/tags/复盘/" style="font-size: 10px;">复盘</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/文档/" style="font-size: 10px;">文档</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/电子书/" style="font-size: 10px;">电子书</a> <a href="/tags/编译/" style="font-size: 10px;">编译</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/语义化/" style="font-size: 10px;">语义化</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/错误监控/" style="font-size: 10px;">错误监控</a>
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"># vue</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/错误监控/" rel="tag"># 错误监控</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/19/jQuery-offset/" rel="prev" title="jQuery offset()">
+      <i class="fa fa-chevron-left"></i> jQuery offset()
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-  </aside>
-
+      </footer>
+    
+  </article>
   
-    <aside class="widget">
-    <h3 class="widget-title"></h3>
-    <div class="widget-content">
-    <script>
-	var _hmt = _hmt || [];
-	(function() {
-  		var hm = document.createElement("script");
-  		hm.src = "https://hm.baidu.com/hm.js?c275e29e124b51a2fd933e39ddb615a1";
-  		var s = document.getElementsByTagName("script")[0];
-  		s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-    </div>
-</aside>
-
   
-</div>
-      </div>
-      <footer id="colophon" role="contentinfo">
-    <p>&copy; 2018 thu
-    All rights reserved.</p>
-    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+  
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
+          </div>
+          
 
-<script src="/js/script.js"></script>
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
-<script src="/js/navigation.js"></script>
-
-<div id="bg"></div>
-
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#监听内容"><span class="nav-number">1.</span> <span class="nav-text">监听内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种错误类型"><span class="nav-number">1.2.</span> <span class="nav-text">三种错误类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript错误"><span class="nav-number">1.2.1.</span> <span class="nav-text">JavaScript错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态资源错误"><span class="nav-number">1.2.2.</span> <span class="nav-text">静态资源错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX错误"><span class="nav-number">1.2.3.</span> <span class="nav-text">AJAX错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩"><span class="nav-number">1.3.</span> <span class="nav-text">压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩效率"><span class="nav-number">1.3.1.</span> <span class="nav-text">压缩效率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩方式"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">压缩方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gzip与deflate对比"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">gzip与deflate对比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误合并逻辑"><span class="nav-number">1.4.</span> <span class="nav-text">错误合并逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#javascriptError"><span class="nav-number">1.4.1.</span> <span class="nav-text">javascriptError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#httpError"><span class="nav-number">1.4.2.</span> <span class="nav-text">httpError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resourceError"><span class="nav-number">1.4.3.</span> <span class="nav-text">resourceError</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">thu</p>
+  <div class="site-description" itemprop="description">主要是前端的技术...也不排除...千万不要写...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">thu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
 </html>

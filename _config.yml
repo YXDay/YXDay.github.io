@@ -7,7 +7,7 @@ title: 橘子园
 subtitle: 种橘子的地方
 description: 主要是前端的技术...也不排除...千万不要写...
 author: thu
-language:
+language: zh-CN
 timezone:
 
 # URL
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cyanstyle
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
